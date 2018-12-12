@@ -11,13 +11,13 @@ Checkboxes left empty will indicate you did not answer that question, so please 
 
 What is true of a program that gets 100% line coverage during testing?
 
-[] Every line of the program is executed at least once during test execution
+[y] Every line of the program is executed at least once during test execution
 
-[] If all tests passed, the program has no bugs
+[n] If all tests passed, the program has no bugs
 
-[] All of the program’s outputs are checked by the tests
+[n] All of the program’s outputs are checked by the tests
 
-[] It is less likely to contain bugs than an untested program
+[y] It is less likely to contain bugs than an untested program
 
 ### Question 2 [2 points]
 
@@ -31,38 +31,38 @@ public interface A<T> {
 }
 ```
 
-Write your answer here: ____________
+Write your answer here: Iterator
 
 (2.b) In the chosen pattern, what does “`next()`” do, if “`hasNext()`” has just returned false?
 
-[] Crashes
+[n] Crashes
 
-[] Returns the next element
+[n] Returns the next element
 
-[] Returns the same element
+[n] Returns the same element
 
-[] Returns the first element
+[n] Returns the first element
 
-[] Returns the `Default<T>()` value
+[n] Returns the `Default<T>()` value
 
-[] Throws `NoSuchElementException`
+[y] Throws `NoSuchElementException`
 
-[] Throws `InvalidArgumentException`
+[n] Throws `InvalidArgumentException`
 
-[] Throws `ArrayIndexOutOfBoundsException`
+[n] Throws `ArrayIndexOutOfBoundsException`
 
 ### Question 3 [2 points]
 
 You’re designing a data model for a `SantaFactory`, consisting of `Shipper` and `Artisan` objects, both of which are `Elf` objects. 
 What is the correct relationship among these entities?
 
-[] `Shipper` and `Artisan` inherit from `Elf`; `SantaFactory` contains `Artisan` and `Shipper` objects
+[y] `Shipper` and `Artisan` inherit from `Elf`; `SantaFactory` contains `Artisan` and `Shipper` objects
 
-[] `Shipper` inherits from `Elf`; `Artisan` inherits from `Shipper`; `SantaFactory` contains `Artisan` and `Shipper` objects
+[n] `Shipper` inherits from `Elf`; `Artisan` inherits from `Shipper`; `SantaFactory` contains `Artisan` and `Shipper` objects
 
-[] `Elf` inherits from `Artisan`; `Shipper` inherits from `Artisan`; `SantaFactory` contains `Shipper` and `Artisan` objects
+[n] `Elf` inherits from `Artisan`; `Shipper` inherits from `Artisan`; `SantaFactory` contains `Shipper` and `Artisan` objects
 
-[] `Shipper` and `Artisan` inherit from `SantaFactory`
+[n] `Shipper` and `Artisan` inherit from `SantaFactory`
 
 ### Question 4 [3 points]
 
@@ -78,11 +78,11 @@ Suppose someone implements the following maps and provides the following informa
 
 Indicate which statements are true:
 
-[] `IntMap`’s contract makes sense
+[y] `IntMap`’s contract makes sense
 
-[] `EvenIntMap`’s contract makes sense
+[n] `EvenIntMap`’s contract makes sense
 
-[] `OddIntMap`’s contract makes sense
+[y] `OddIntMap`’s contract makes sense
 
 ### Question 5 [7 points]
 
@@ -94,7 +94,7 @@ For each line that violates one or more best practice, add a comment to the code
 
 ```java
 public class RankingSystem {
-  public final int rank;
+  public final int rank; // should be private
   private final List<String> references;
  
   public RankingSystem(int rank, List<String> references) {
@@ -103,7 +103,7 @@ public class RankingSystem {
   }
  
   public String getReferenceAt(int position) {
-      return this.references.get(position);
+      return this.references.get(position); // no check if the index is valid
   }
 }
 ```
@@ -115,7 +115,7 @@ Modify the code in-place.
 
 ```java
 public class RankingSystem {
-  public final int rank;
+  private final int rank;
   private final List<String> references;
  
   public RankingSystem(int rank, List<String> references) {
@@ -124,7 +124,8 @@ public class RankingSystem {
   }
  
   public String getReferenceAt(int position) {
-      return this.references.get(position);
+      if(position < references.size())
+          return this.references.get(position);
   }
 }
 ```
@@ -150,11 +151,11 @@ You consider using the MVC pattern and implement a web app with the following wo
 
 Using the information from the above workflow, identify below which elements represent the Model, the Controller, and the View in your MVC architecture. Clearly explain and justify your answers.
 
-Model: ________________
+Model: 3
 
-View: ________________
+View: The part visible to the user, that he/she interacts with (frontend).
 
-Controller: ________________
+Controller: The part that 
 
 
 ### Question 8 [12 points]
@@ -175,10 +176,10 @@ Also, you would like to leave some freedom to the users of your API (in particul
 Therefore, you decide to drop the inheritance model you used until now, and instead use a SwEng design pattern. 
 Indicate below your choice, and justify clearly and concisely with max 1 sentence each option. Clearly state your assumptions, if any.
 
-[] Adapter
+[n] Adapter
 
-[] Composite
+[y] Composite
 
-[] Decorator
+[n] Decorator
 
-[] Visitor
+[n] Visitor
